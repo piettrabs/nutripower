@@ -59,7 +59,7 @@ app.post("/cadastroproduto", async(req, res)=>{
     const quantidadeestoque  = req.body.quantidadeestoque
 
 
-    const ProdutoSuplemento = new ProdutoSuplemento({
+    const produtoSuplemento = new ProdutoSuplemento({
         id_produtossuplementos : id_produtossuplementos,
         descricao : descricao,
         marca : marca,
@@ -69,7 +69,7 @@ app.post("/cadastroproduto", async(req, res)=>{
 
 
     try{
-        const newProdutoSuplemento = await ProdutoSuplemento.save();
+        const newProdutoSuplemento = await produtoSuplemento.save();
         res.json({error : null, msg : "Produto ok", id_produtossuplementosId : newProdutoSuplemento._id});
     } catch(error){
         res.status(400).json({error});
